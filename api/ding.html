@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ajax发送钉钉消息</title>
+	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			console.log("=== start ===");
+			$.ajax({
+				url:'https://oapi.dingtalk.com/robot/send?access_token=72cdb5c4132e1d4da62327fa7d6595d51ac5def2aa8dc7d99c8c7aa834e74e05',
+				type:"POST",
+				beforeSend:function (xhr){
+					xhr.setRequestHeader('Content-Type', 'application/json');
+				},
+				data:JSON.stringify({"msgtype": "text","text": {"content": "Hell123o World! ---大话家"}}), 
+				success:function (res){
+					console.log("=== success ===");
+					console.log(res); 
+				},
+				error:function (err){
+					console.log("=== error ===");
+					console.log(err); 
+				}
+			});
+		});
+		console.log("=== end ===");
+</script>
+</head>
+<body>
+<h1>钉钉机器人消息发送中。。。</h1>
+</body>
+</html>
