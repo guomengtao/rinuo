@@ -12,12 +12,26 @@
  3. ssh-keygen -t rsa -C “你的邮箱”
 
 生成 私钥和公钥
-windows的位置 在管理员 目录 
+windows的位置 在管理员 目录  （直接使用Git的Bash面板，写linux命令。避免再windows的cmd里面写windows命令不一致）
 
 提供公钥
 
+         1、 查看本地是否存在SSH密钥
+         命令：ls -al ~/.ssh
 
-4. 项目里加入 自己的账号 ，自己邮箱去验证（此次为验证）
+         如果在输出的文件列表中发现id_rsa和id_rsa.pub的存在，证明本地已经存在SSH密钥，请执行第3步
+
+         2、 生成SSH密钥
+         命令：ssh-keygen -t rsa -C "自己的Email地址"
+
+         注意：执行完成后会有一些列提示输入密码的指令，直接回车即可
+
+         3、 查看SSH公钥
+         命令：cat /Users/电脑用户名/.ssh/id_rsa.pub
+
+         复制打印出来的信息，在GitLab或者GitHub的SSH Keys中进行相应设置即可
+
+         4. 项目里加入 自己的账号 ，自己邮箱去验证（此次为验证）
 
 
 3和4需测试 是否任一一种方法都可以。
