@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read JSON</title>
+</head>
+<body>
+    <h1>JSON Data</h1>
+    <pre id="json-data"></pre>
+
+    <script>
+        // 使用fetch API读取JSON文件
+        fetch('i_json.json')
+            .then(response => response.json())  // 将响应转换为JSON
+            .then(data => {
+                // 将JSON数据显示在页面上
+                document.getElementById('json-data').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
